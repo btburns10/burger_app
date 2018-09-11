@@ -1,0 +1,26 @@
+<h1>Welcome to Burns Burgers!</h1>
+
+<div class="flex-container">
+    <h4>Burger Menu:</h4>
+        <ul>
+            {{#each burgers}}
+              {{#unless devoured}}
+                {{> burgers/burger_block devoured=false}}
+              {{/unless}}
+            {{/each}}
+        </ul>
+
+    <form class="create-form">
+        <input type="text" id="input" name="name">
+        <button type="submit" id="submit-btn">Create</button>
+    </form>
+
+    <h4>Devoured:</h4>
+        <ul>
+            {{#each burgers}}
+              {{#if devoured}}
+                {{> burgers/burger_block devoured=true}}
+              {{/if}}
+            {{/each}}
+        </ul>
+</div>
