@@ -20,8 +20,6 @@ $(function() {
     $(".devour-burger").on("click", function() {
         var id = $(this).data("id");
         var newDevoured = $(this).data("newdevoured");
-        console.log(id);
-        console.log(newDevoured)
         
         //data object sent to server
         var devouredState = {
@@ -41,7 +39,7 @@ $(function() {
 
     $(".delete-burger").on("click", function() {
         var id = $(this).data("id");
-
+    
         $.ajax("/api/burgers/" + id, {
             type: "DELETE"
         }).then(
