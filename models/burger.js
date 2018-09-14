@@ -10,19 +10,19 @@ const burger = {
     create: function(cols, vals, cb) {
         orm.insertOne("burgers", cols, vals, function(res) {
             cb(res);
-        })
+        });
     },
 
-    update: function(cols, vals, cb) {
-        orm.updateOne("burgers", cols, vals, function(res) {
+    update: function(objColVals, condition, cb) {
+        orm.updateOne("burgers", objColVals, condition, function(res) {
             cb(res);
-        })
+        });
     },
 
     delete: function(condition, cb) {
         orm.deleteOne("burgers", condition, function(res) {
             cb(res);
-        })
+        });
     }
 }
 
