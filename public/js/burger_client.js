@@ -37,6 +37,19 @@ $(function() {
 
                 location.reload();
             });
+    });
+
+    $(".delete-burger").on("click", function() {
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(
+            function() {
+                console.log("Burger with id: " + id + " has been removed.");
+
+                location.reload();
+            });
     })
 
 })

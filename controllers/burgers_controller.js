@@ -43,6 +43,19 @@ router.put("/api/burgers/:id", function(req, res) {
     });
 });
 
+router.delete("/api/burgers/:id", function(req, res) {
+    var condition = req.params.id;
+
+    burger.delete(condition, function(result) {
+        if (result.affectedRows == 0) {
+            return res.status(404).end();
+          } else {
+            res.status(200).end();
+          }
+    });
+});
+
+//catch all other route paths
 router.get("*", function(req, res) {
     res.send("Sorry our website does not support the page you are searching for.");
 });
